@@ -41,7 +41,6 @@ class RangeInfoBean {
 	 * @return mBid
 	 */
 	public String getBid() {
-		logger.debug("文献種別ID取得メソッドの戻り値は" + mBid);
 		return mBid;
 	}
 
