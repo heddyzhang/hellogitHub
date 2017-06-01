@@ -1,7 +1,8 @@
 package com.batch.CP5P130;
 
-import org.apache.log4j.Logger;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 /**
  * 文蓄定義を格納するクラス
  * @author chou
@@ -21,7 +22,7 @@ class RangeDefineBean {
 	private String mKind;
 
 	// ログ出力クラス(DEBUG 用)
-	private static final Logger logger = Logger.getLogger(RangeDefineBean.class);
+	private static final Logger logger = LoggerFactory.getLogger(RangeDefineBean.class);
 
 	/**
 	 * 文献種別ID取得メソッド
