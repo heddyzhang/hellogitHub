@@ -49,7 +49,6 @@ class RangeInfoBean {
 	 * @return mBnm
 	 */
 	public String getBnm() {
-		logger.debug("文献名称取得メソッドの戻り値は" + mBnm);
 		return mBnm;
 	}
 
