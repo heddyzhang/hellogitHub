@@ -38,7 +38,7 @@ public class CP5P130 {
 		try {
 
 			// ログ設定ファイルを読み込む
-			PropertyConfigurator.configure("resources/log4j.properties");
+			PropertyConfigurator.configure("../resources/log4j.properties");
 
 			msg = String.format(MessageInfo.CP5J510001);
 			System.out.println(objLogFm.format("CP5J510001-I", msg));
