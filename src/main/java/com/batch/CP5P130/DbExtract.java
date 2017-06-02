@@ -29,7 +29,6 @@ public class DbExtract{
 
 	public DbExtract(String tblName) {
 		mTblName   = tblName;
-		logger.debug("メンバ変数mTblNameは" + mTblName);
 	}
 
 	/**
