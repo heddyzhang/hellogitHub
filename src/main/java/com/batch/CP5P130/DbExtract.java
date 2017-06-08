@@ -146,8 +146,6 @@ public class DbExtract{
 				mStmt.setString(1, mDbItemsList.get(i).getScd());
 				mStmt.setString(2, mDbItemsList.get(i).getDnoMin());
 
-				logger.debug("パラメタ1は" + mDbItemsList.get(i).getScd());
-				logger.debug("パラメタ2は" + mDbItemsList.get(i).getDnoMin());
 				// ResultSet取得
 				mRs = mStmt.executeQuery();
 
@@ -210,8 +208,6 @@ public class DbExtract{
 				mStmt.setString(1, mDbItemsList.get(i).getScd());
 				mStmt.setString(2, mDbItemsList.get(i).getDnoMax());
 
-				logger.debug("パラメタ1は" + mDbItemsList.get(i).getScd());
-				logger.debug("パラメタ2は" + mDbItemsList.get(i).getDnoMax());
 				// ResultSet取得
 				mRs = mStmt.executeQuery();
 

@@ -46,10 +46,6 @@ public class DbAccess{
 		mDbUser   = dbUser;
 		mDbPass   = dbPass;
 
-		logger.debug("メンバ変数mDbDriverは" + mDbDriver);
-		logger.debug("メンバ変数mDbUrlは" + mDbDriver);
-		logger.debug("メンバ変数mDbUserは" + mDbDriver);
-		logger.debug("メンバ変数mDbPassは" + mDbDriver);
 	}
 
 
@@ -86,7 +82,7 @@ public class DbAccess{
 			// 予期しない例外発生
 			throw ex3;
 		}
-		logger.debug("メソッド connect end");
+
 		return mCon;
 	}
 
@@ -111,7 +107,6 @@ public class DbAccess{
 			msg = String.format(MessageInfo.CP5J010004,  ex1.getErrorCode());
 			System.out.println(objLogFm.format("CP5J010004-E", msg));
 
-			logger.debug("メソッドdisconnectの戻り値は" + SystemStatus.ERROR_16);
 			return SystemStatus.ERROR_16;
 
 		} catch (Exception ex2) {
@@ -121,11 +116,9 @@ public class DbAccess{
 
 			ex2.printStackTrace();
 
-			logger.debug("メソッドdisconnectの戻り値は" + SystemStatus.ERROR_16);
 			return SystemStatus.ERROR_16;
 		}
 
-		logger.debug("メソッドdisconnectの戻り値は" + SystemStatus.NORMAL);
 		logger.debug("メソッド disconnect end");
 		// 正常終了
 		return SystemStatus.NORMAL;

@@ -919,7 +919,7 @@ public class DbUpdate {
 			mStmt = Con.prepareStatement(query);
 			// パラメタ1(引数のISN)
 			mStmt.setInt(1, isn);
-			logger.debug("パラメタISN:" + String.valueOf(isn));
+
 			// DB削除を実行
 			mStmt.execute();
 			logger.debug("削除executeメソッドを実行");
