@@ -241,19 +241,19 @@ public class RangeInfo {
 						// 存在フラグ
 						bFound = true;
 
-						// 蓄積先頭番号(5バイト目～13バイト目)
-						dnoMin = objDbExtract3.getDnoMin(j).substring(4,13);
-						logger.debug("種別コード(外国)" + scd3 + "に対する蓄積先頭番号" + dnoMin);
-						// 蓄積最終番号(5バイト目～13バイト目)
-						dnoMax = objDbExtract3.getDnoMax(j).substring(4,13);
-						logger.debug("種別コード(外国)" + scd3 + "に対する蓄積最終番号は" + dnoMax);
+						// 蓄積先頭番号(1バイト目～9バイト目)
+						dnoMin = objDbExtract3.getDnoMin(j).substring(0,9);
+						//logger.debug("種別コード(外国)" + scd3 + "に対する蓄積先頭番号" + dnoMin);
+						// 蓄積最終番号(1バイト目～9バイト目)
+						dnoMax = objDbExtract3.getDnoMax(j).substring(0,9);
+						//logger.debug("種別コード(外国)" + scd3 + "に対する蓄積最終番号は" + dnoMax);
 						// 公知日(年)
 						isdateMax = objDbExtract3.getIsdateMax(j);
-						logger.debug("種別コード(外国)" + scd3 + "に対する公知日(年)は" + isdateMax);
+						//logger.debug("種別コード(外国)" + scd3 + "に対する公知日(年)は" + isdateMax);
 
 						// 蓄積総件数
 						count = Long.parseLong(objDbExtract3.getCount(j));
-						logger.debug("種別コード(外国)" + scd3 + "に対する蓄積総件数は" + count);
+						//logger.debug("種別コード(外国)" + scd3 + "に対する蓄積総件数は" + count);
 					}
 				}
 

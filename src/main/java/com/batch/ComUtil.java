@@ -147,7 +147,7 @@ public class ComUtil {
 		if (isEmpty(s))
 			return 0;
 
-		return Integer.parseInt(s);
+		return Integer.parseInt(s.trim());
 	}
 
 	/**
@@ -162,7 +162,7 @@ public class ComUtil {
 		if (isEmpty(s))
 			return 0;
 
-		return Long.parseLong(s);
+		return Long.parseLong(s.trim());
 	}
 
 	/**

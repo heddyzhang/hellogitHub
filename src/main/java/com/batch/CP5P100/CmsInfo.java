@@ -48,7 +48,6 @@ public class CmsInfo {
 
 		// オブジェクト生成
 		try {
-			logger.debug("共通検索一覧表示用情報出力パスは" + mFileCms);
 			mFileCmsPw = new PrintWriter(new BufferedWriter(new OutputStreamWriter(new FileOutputStream(mFileCms), IComConst.FILE_OUTPUT_ENCODING)));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -518,7 +517,7 @@ public class CmsInfo {
 
 					objCmsInfoBean.setKy3(item);
 					// 種別コードを取得
-					scdKy =  getScdKy(item);
+					scdKy =  getScdKy(String.format("%s%s%s", objCmsInfoBean.getKy1(),  objCmsInfoBean.getKy2(),  objCmsInfoBean.getKy3()));
 					objCmsInfoBean.setScdKy(scdKy);
 
 					continue;
