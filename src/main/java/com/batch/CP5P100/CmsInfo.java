@@ -783,10 +783,10 @@ public class CmsInfo {
 				}
 
 				if ("U".equals(cond2)) {
-					if (ComUtil.toLng(item.substring(6, 12)) < 500001) {
-						ScdKz = "UA0";
-					} else if (ComUtil.toint(cond32) == 0) {
+					if (ComUtil.toint(cond32) == 0) {
 						ScdKz = "UN0";
+					} else if (ComUtil.toLng(item.substring(6, 12)) < 500001) {
+						ScdKz = "UA0";
 					} else if (ComUtil.toint(cond31) >= 5 && ComUtil.toint(cond31) != 8 ) {
 						ScdKz = "UT0";
 					} else {
