@@ -15,6 +15,7 @@
 		    <groupId>junit</groupId>
 		    <artifactId>junit</artifactId>
 		    <version>4.12</version>
+		    <scope>test</scope>	<!-- 依存するライブラリがいつクラスパスに追加されるかを指定するもの -->
 		</dependency>
 		<!-- これを追加↓ -->
 		<dependency>
@@ -70,7 +71,7 @@
 				</configuration>
 				<executions>
 					<execution>
-						<id>make-assembly</id> <!-- this is used for inheritance merges -->
+						<id>make-assembly</id> <!-- this is used for inheritance merges XXX-jar-with-dependencies.jar-->
 						<phase>package</phase> <!-- bind to the packaging phase -->
 						<goals>
 							<goal>single</goal>
