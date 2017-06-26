@@ -70,6 +70,7 @@ public class SystemEnv {
 	 * @return mPdnameportVal
 	 */
     public String getPdnameportVal() {
+    	logger.debug("メソッドgetPdnameportValの戻り値は" + mPdnameportVal);
         return mPdnameportVal;
     }
 
@@ -78,6 +79,7 @@ public class SystemEnv {
      * @return mPdhostVal
      */
     public String getPdhostVal() {
+    	logger.debug("メソッドgetPdhostValの戻り値は" + mPdhostVal);
         return mPdhostVal;
     }
 }

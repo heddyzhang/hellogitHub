@@ -632,15 +632,15 @@ public class DbUpdate {
 
 				// 代表文献番号(国コード)
 				stmt.setString(3, data[IComConst.KY1_IDX_FP]);
-				logger.debug("stmtの3番目は" + data[IComConst.KY1_IDX_FP]);
+				//logger.debug("stmtの3番目は" + data[IComConst.KY1_IDX_FP]);
 
 				// 代表文献番号(種別)
 				stmt.setString(4, data[IComConst.KY2_IDX_FP]);
-				logger.debug("stmtの4番目は" + data[IComConst.KY2_IDX_FP]);
+				//logger.debug("stmtの4番目は" + data[IComConst.KY2_IDX_FP]);
 
 				// 代表文献番号(公開／公告番号)
 				stmt.setString(5, data[IComConst.KY3_IDX_FP]);
-				logger.debug("stmtの5番目は" + data[IComConst.KY3_IDX_FP]);
+				//logger.debug("stmtの5番目は" + data[IComConst.KY3_IDX_FP]);
 
 				// 文献番号
 				List<String> kzLst = new ArrayList<String>();
@@ -651,15 +651,15 @@ public class DbUpdate {
 				String[] kzArr = (String[]) kzLst.toArray(new String[0]);
 				if (kzArr.length ==0) kzArr = null;
 				stmt.setObject(6, kzArr);
-				logger.debug("stmtの6番目は" + Arrays.toString(kzArr));
+				//logger.debug("stmtの6番目は" + Arrays.toString(kzArr));
 
 				// 出願日
 				stmt.setString(7, data[IComConst.AD_IDX_FP]);
-				logger.debug("stmtの7番目は" + data[IComConst.AD_IDX_FP]);
+				//logger.debug("stmtの7番目は" + data[IComConst.AD_IDX_FP]);
 
 				// 公知日
 				stmt.setString(8, data[IComConst.HK_IDX_FP]);
-				logger.debug("stmtの8番目は" + data[IComConst.HK_IDX_FP]);
+				//logger.debug("stmtの8番目は" + data[IComConst.HK_IDX_FP]);
 
 				// FI
 				List<String> fiLst = new ArrayList<String>();
@@ -670,7 +670,7 @@ public class DbUpdate {
 				String[] fiArr = (String[]) fiLst.toArray(new String[0]);
 				if (fiArr.length ==0) fiArr = null;
 				stmt.setObject(9, fiArr);
-				logger.debug("stmtの9番目は" + Arrays.toString(fiArr));
+				//logger.debug("stmtの9番目は" + Arrays.toString(fiArr));
 
 				// Fターム
 				List<String> ftLst = new ArrayList<String>();
@@ -681,7 +681,7 @@ public class DbUpdate {
 				String[] ftArr = (String[]) ftLst.toArray(new String[0]);
 				if (ftArr.length ==0) ftArr = null;
 				stmt.setObject(10, ftArr);
-				logger.debug("stmtの10番目は" + Arrays.toString(ftArr));
+				//logger.debug("stmtの10番目は" + Arrays.toString(ftArr));
 
 				// IPC
 				List<String> icLst = new ArrayList<String>();
@@ -692,15 +692,15 @@ public class DbUpdate {
 				String[] icArr = (String[]) icLst.toArray(new String[0]);
 				if (icArr.length ==0) icArr = null;
 				stmt.setObject(11, icArr);
-				logger.debug("stmtの11番目は" + Arrays.toString(icArr));
+				//logger.debug("stmtの11番目は" + Arrays.toString(icArr));
 
 				// 種別コード(代表文献番号)
 				stmt.setString(12, data[IComConst.SCD_KY_IDX_FP]);
-				logger.debug("stmtの12番目は" + data[IComConst.SCD_KY_IDX_FP]);
+				//logger.debug("stmtの12番目は" + data[IComConst.SCD_KY_IDX_FP]);
 
 				// 検索コード
 				stmt.setString(13, data[IComConst.SLTCD_IDX_FP]);
-				logger.debug("stmtの13番目は" + data[IComConst.SLTCD_IDX_FP]);
+				//logger.debug("stmtの13番目は" + data[IComConst.SLTCD_IDX_FP]);
 
 			// 処理区分非特許の場合
 			} else {
@@ -919,7 +919,7 @@ public class DbUpdate {
 			mStmt = Con.prepareStatement(query);
 			// パラメタ1(引数のISN)
 			mStmt.setInt(1, isn);
-
+			logger.debug("パラメタISN:" + String.valueOf(isn));
 			// DB削除を実行
 			mStmt.execute();
 			logger.debug("削除executeメソッドを実行");
@@ -1098,12 +1098,22 @@ public class DbUpdate {
 				query = SystemInfo.QUERY1_06;
 
 			} else 	if (IComConst.SHORI_KBN_FP.equals(mShoriKbn)) {
-				// 蓄積確認上位10件取得(国外)クエリ
-				query = SystemInfo.QUERY2_06;
-
+				if ("FP1".equals(scdKy) || "KR1".equals(scdKy) || "KRA".equals(scdKy)) {
+					// 蓄積確認上位10件取得(国外)クエリ
+					query = SystemInfo.QUERY22_06;
+				} else {
+					// 蓄積確認上位10件取得(国外)クエリ
+					query = SystemInfo.QUERY21_06;
+				}
 			} else {
-				// 蓄積確認上位10件取得(非特許)クエリ
-				query = SystemInfo.QUERY3_06;
+				// 種別コードが"N10"の場合
+				if ("N10".equals(scdKy)) {
+					// 蓄積確認上位10件取得(非特許)クエリ
+					query = SystemInfo.QUERY32_06;
+				} else {
+					// 蓄積確認上位10件取得(非特許)クエリ
+					query = SystemInfo.QUERY31_06;
+				}
 			}
 
 			logger.debug("蓄積確認上位10件取得SQL文:" + query);
@@ -1191,12 +1201,26 @@ public class DbUpdate {
 				query = SystemInfo.QUERY1_07;
 
 			} else 	if (IComConst.SHORI_KBN_FP.equals(mShoriKbn)) {
-				// 蓄積確認下位5件取得(国外)クエリ
-				query = SystemInfo.QUERY2_07;
+				if ("FP1".equals(scdKy) || "KR1".equals(scdKy) || "KRA".equals(scdKy)) {
+					// 蓄積確認下位5件取得(国外)クエリ
+					query = SystemInfo.QUERY22_07;
+				} else {
+					// 蓄積確認下位5件取得(国外)クエリ
+					query = SystemInfo.QUERY21_07;
+				}
+
 
 			} else {
-				// 蓄積確認下位5件取得(非特許)クエリ
-				query = SystemInfo.QUERY3_07;
+				// 種別コードが"N10"の場合
+				if ("N10".equals(scdKy)) {
+					// 蓄積確認下位5件取得(非特許)クエリ
+					query = SystemInfo.QUERY32_07;
+				// 種別コードが"N10"以外の場合
+				} else {
+					// 蓄積確認下位5件取得(非特許)クエリ
+					query = SystemInfo.QUERY31_07;
+				}
+
 			}
 
 			logger.debug("蓄積確認下位5件取得SQL文:" + query);

@@ -6,8 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
 
 import com.batch.Cp5Exception;
 import com.batch.MessageInfo;
@@ -25,10 +24,11 @@ public class DbExtract{
 	private List<RangeInfoBean> mDbItemsList = null;
 
 	// ログ出力クラス(DEBUG 用)
-	private static final Logger logger = LoggerFactory.getLogger(DbExtract.class);
+	private static final Logger logger = Logger.getLogger(DbExtract.class);
 
 	public DbExtract(String tblName) {
 		mTblName   = tblName;
+		logger.debug("メンバ変数mTblNameは" + mTblName);
 	}
 
 	/**
@@ -146,6 +146,8 @@ public class DbExtract{
 				mStmt.setString(1, mDbItemsList.get(i).getScd());
 				mStmt.setString(2, mDbItemsList.get(i).getDnoMin());
 
+				logger.debug("パラメタ1は" + mDbItemsList.get(i).getScd());
+				logger.debug("パラメタ2は" + mDbItemsList.get(i).getDnoMin());
 				// ResultSet取得
 				mRs = mStmt.executeQuery();
 
@@ -208,6 +210,8 @@ public class DbExtract{
 				mStmt.setString(1, mDbItemsList.get(i).getScd());
 				mStmt.setString(2, mDbItemsList.get(i).getDnoMax());
 
+				logger.debug("パラメタ1は" + mDbItemsList.get(i).getScd());
+				logger.debug("パラメタ2は" + mDbItemsList.get(i).getDnoMax());
 				// ResultSet取得
 				mRs = mStmt.executeQuery();
 

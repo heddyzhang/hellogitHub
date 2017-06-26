@@ -105,7 +105,8 @@ public class RangeInfo {
 	 * @param objDbExtract2
 	 * @throws Exception
 	 */
-	public void setRangeInfo(DbExtract objDbExtract1, DbExtract objDbExtract2, DbExtract objDbExtract3, DbExtract objDbExtract4) throws Exception {
+	public void setRangeInfo(DbExtract objDbExtract1, DbExtract objDbExtract2, DbExtract objDbExtract31,
+					DbExtract objDbExtract32, DbExtract objDbExtract41, DbExtract objDbExtract42) throws Exception {
 
 		int i, j;
 		String scd1 = "";
@@ -118,10 +119,6 @@ public class RangeInfo {
 
 			// 文蓄情報Bean型出力エリアリスト
 			mRangeInfoList = new ArrayList<RangeInfoBean>();
-			logger.debug("共通検索一覧表示用情報(国内1)管理DBの抽出件数は" + objDbExtract1.getFetchNum());
-			logger.debug("共通検索一覧表示用情報(国内2)管理DBの抽出件数は" + objDbExtract2.getFetchNum());
-			logger.debug("共通検索一覧表示用情報(外国)管理DBの抽出件数は" + objDbExtract3.getFetchNum());
-			logger.debug("共通検索一覧表示用情報(非特許)管理DBの抽出件数は" + objDbExtract4.getFetchNum());
 
 			// 文蓄定義Bean型リスト毎に繰り返し
 			for (i = 0; i < mDefineList.size(); i++) {
@@ -155,13 +152,10 @@ public class RangeInfo {
 
 						// 蓄積先頭番号(4バイト目～12バイト目)
 						tDnoMin = objDbExtract1.getDnoMin(j).substring(3,12);
-						logger.debug("種別コード(国内1)" + scd1 + "に対する蓄積先頭番号は" + tDnoMin);
 						// 蓄積最終番号(4バイト目～12バイト目)
 						tDnoMax = objDbExtract1.getDnoMax(j).substring(3,12);
-						logger.debug("種別コード(国内1)" + scd1 + "に対する蓄積最終番号は" + tDnoMax);
 						// 公知日(年)
 						tIsdateMax = objDbExtract1.getIsdateMax(j);
-						logger.debug("種別コード(国内1)" + scd1 + "に対する公知日(年)は" + tIsdateMax);
 
 						// 複数存在する場合、一致するデータ中の最小値を設定
 						//if (ComUtil.compareSmaller(tDnoMin, dnoMin)) {
@@ -231,10 +225,10 @@ public class RangeInfo {
 					}
 				}
 
-				// 共通検索一覧表示用情報(外国)管理DB抽出テーブルについて検索
-				for (j = 0; j < objDbExtract3.getFetchNum(); j++) {
+				// 共通検索一覧表示用情報(外国)管理DB抽出テーブル①について検索
+				for (j = 0; j < objDbExtract31.getFetchNum(); j++) {
 
-					scd3 = objDbExtract3.getScd(j);
+					scd3 = objDbExtract31.getScd(j);
 					// 文蓄定義Bean型Listオブジェクトの種別コードと抽出テーブル一致する場合
 					if (scd.equals(scd3)) {
 
@@ -242,47 +236,80 @@ public class RangeInfo {
 						bFound = true;
 
 						// 蓄積先頭番号(1バイト目～9バイト目)
-						dnoMin = objDbExtract3.getDnoMin(j).substring(0,9);
-						//logger.debug("種別コード(外国)" + scd3 + "に対する蓄積先頭番号" + dnoMin);
+						dnoMin = objDbExtract31.getDnoMin(j).substring(0,9);
 						// 蓄積最終番号(1バイト目～9バイト目)
-						dnoMax = objDbExtract3.getDnoMax(j).substring(0,9);
-						//logger.debug("種別コード(外国)" + scd3 + "に対する蓄積最終番号は" + dnoMax);
+						dnoMax = objDbExtract31.getDnoMax(j).substring(0,9);
 						// 公知日(年)
-						isdateMax = objDbExtract3.getIsdateMax(j);
-						//logger.debug("種別コード(外国)" + scd3 + "に対する公知日(年)は" + isdateMax);
+						isdateMax = objDbExtract31.getIsdateMax(j);
 
 						// 蓄積総件数
-						count = Long.parseLong(objDbExtract3.getCount(j));
-						//logger.debug("種別コード(外国)" + scd3 + "に対する蓄積総件数は" + count);
+						count = Long.parseLong(objDbExtract31.getCount(j));
 					}
 				}
 
-				// 共通検索一覧表示用情報(非特許)管理DB抽出テーブルについて検索
-				for (j = 0; j < objDbExtract4.getFetchNum(); j++) {
+				// 共通検索一覧表示用情報(外国)管理DB抽出テーブル②について検索
+				for (j = 0; j < objDbExtract32.getFetchNum(); j++) {
 
-					scd4 = objDbExtract4.getScd(j);
+					scd3 = objDbExtract32.getScd(j);
+					// 文蓄定義Bean型Listオブジェクトの種別コードと抽出テーブル一致する場合
+					if (scd.equals(scd3)) {
+
+						// 存在フラグ
+						bFound = true;
+
+						// 蓄積先頭番号(1バイト目～9バイト目)
+						dnoMin = objDbExtract32.getDnoMin(j).substring(0,9);
+						// 蓄積最終番号(1バイト目～9バイト目)
+						dnoMax = objDbExtract32.getDnoMax(j).substring(0,9);
+						// 公知日(年)
+						isdateMax = objDbExtract32.getIsdateMax(j);
+
+						// 蓄積総件数
+						count = Long.parseLong(objDbExtract32.getCount(j));
+					}
+				}
+
+				// 共通検索一覧表示用情報(非特許)管理DB抽出テーブル(N10以外)について検索
+				for (j = 0; j < objDbExtract41.getFetchNum(); j++) {
+
+					scd4 = objDbExtract41.getScd(j);
 					// 文蓄定義Bean型Listオブジェクトの種別コードと抽出テーブル一致する場合
 					if (scd.equals(scd4)) {
 
 						// 存在フラグ
 						bFound = true;
 
-						logger.debug("種別コード(非特許)" + scd4 + "に対する代表文献番号(書籍番号)は" + objDbExtract4.getDnoMin(j));
-						logger.debug("種別コード(非特許)" + scd4 + "に対する最小記事番号は" + objDbExtract4.getKy4Min(j));
-						logger.debug("種別コード(非特許)" + scd4 + "に対する最大記事番号は" + objDbExtract4.getKy4Max(j));
 						// 蓄積先頭番号は代表文献番号(書籍番号)と最小代表文献番号(記事番号)を連結
-						dnoMin = String.format("%s%s", objDbExtract4.getDnoMin(j), ComUtil.leftPadZero(objDbExtract4.getKy4Min(j), 3));
-						logger.debug("種別コード(非特許)" + scd4 + "に対する蓄積先頭番号は" + dnoMin);
-						// 蓄積最終番号は代表文献番号(書籍番号)とと最大代表文献番号(記事番号)を連結
-						dnoMax = String.format("%s%s", objDbExtract4.getDnoMax(j), ComUtil.leftPadZero(objDbExtract4.getKy4Max(j), 3));
-						logger.debug("種別コード(非特許)" + scd4 + "に対する蓄積最終番号は" + dnoMax);
+						dnoMin = String.format("%s%s", objDbExtract41.getDnoMin(j), ComUtil.leftPadZero(objDbExtract41.getKy4Min(j), 3));
+						// 蓄積最終番号は代表文献番号(書籍番号)と最大代表文献番号(記事番号)を連結
+						dnoMax = String.format("%s%s", objDbExtract41.getDnoMax(j), ComUtil.leftPadZero(objDbExtract41.getKy4Max(j), 3));
 						// 公知日(年)
-						isdateMax = objDbExtract4.getIsdateMax(j);
-						logger.debug("種別コード(非特許)" + scd4 + "に対する公知日(年)は" + isdateMax);
+						isdateMax = objDbExtract41.getIsdateMax(j);
 
 						// 蓄積総件数
-						count = Long.parseLong(objDbExtract4.getCount(j));
-						logger.debug("種別コード(非特許)" + scd4 + "に対する蓄積総件数は" + count);
+						count = Long.parseLong(objDbExtract41.getCount(j));
+					}
+				}
+
+				// 共通検索一覧表示用情報(非特許)管理DB抽出テーブル(N10)について検索
+				for (j = 0; j < objDbExtract42.getFetchNum(); j++) {
+
+					scd4 = objDbExtract42.getScd(j);
+					// 文蓄定義Bean型Listオブジェクトの種別コードと抽出テーブル一致する場合
+					if (scd.equals(scd4)) {
+
+						// 存在フラグ
+						bFound = true;
+
+						// 蓄積先頭番号は代表文献番号(書籍番号)
+						dnoMin = objDbExtract42.getDnoMin(j);
+						// 蓄積最終番号は代表文献番号(書籍番号)
+						dnoMax = objDbExtract42.getDnoMax(j);
+						// 公知日(年)
+						isdateMax = objDbExtract42.getIsdateMax(j);
+
+						// 蓄積総件数
+						count = Long.parseLong(objDbExtract42.getCount(j));
 					}
 				}
 

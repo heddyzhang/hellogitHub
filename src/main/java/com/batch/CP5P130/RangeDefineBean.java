@@ -1,5 +1,7 @@
 package com.batch.CP5P130;
 
+import org.apache.log4j.Logger;
+
 /**
  * 文蓄定義を格納するクラス
  * @author chou
@@ -18,6 +20,9 @@ class RangeDefineBean {
 	// 文献種別
 	private String mKind;
 
+	// ログ出力クラス(DEBUG 用)
+	private static final Logger logger = Logger.getLogger(RangeDefineBean.class);
+
 	/**
 	 * 文献種別ID取得メソッド
 	 * @return mBid
@@ -32,6 +37,7 @@ class RangeDefineBean {
 	 */
 	public void setBid(String bid) {
 		this.mBid = bid;
+		logger.debug("メンバ変数文献種別ID設定後は" + mBid);
 	}
 
 	/**
@@ -48,6 +54,7 @@ class RangeDefineBean {
 	 */
 	public void setBnm(String bnm) {
 		this.mBnm = bnm;
+		logger.debug("メンバ変数文献名称設定後は" + mBnm);
 	}
 
 	/**
@@ -64,6 +71,7 @@ class RangeDefineBean {
 	 */
 	public void setScd(String scd) {
 		this.mScd = scd;
+		logger.debug("メンバ変数種別コード設定後は" + mScd);
 	}
 
 
@@ -81,6 +89,7 @@ class RangeDefineBean {
 	 */
 	public void setCtry(String ctry) {
 		this.mCtry = ctry;
+		logger.debug("メンバ変数国コード設定後は" + mCtry);
 	}
 
 	/**
@@ -97,5 +106,6 @@ class RangeDefineBean {
 	 */
 	public void setKind(String kind) {
 		this.mKind = kind;
+		logger.debug("メンバ変数文献種別設定後は" + mKind);
 	}
 }

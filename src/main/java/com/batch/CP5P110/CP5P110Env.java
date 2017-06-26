@@ -100,30 +100,6 @@ public class CP5P110Env {
 		return mFileCms;
 	}
 
-//	/**
-//     * 共通検索一覧表示用情報(国内)取得メソッド
-//     * @return
-//     */
-//	public String getFileCmsjptbl() {
-//		return mFileCmsjptbl;
-//	}
-//
-//	/**
-//	 * 共通検索一覧表示用情報(外国)取得メソッド
-//	 * @return
-//	 */
-//	public String getFileCmsfptbl() {
-//		return mFileCmsfptbl;
-//	}
-//
-//	/**
-//	 * 共通検索一覧表示用情報(非特許)取得メソッド
-//	 * @return
-//	 */
-//	public String getFileCmsnptbl() {
-//		return mFileCmsnptbl;
-//	}
-
 	/**
 	 * 蓄積確認パラメータ取得メソッド
 	 * @return
@@ -132,27 +108,4 @@ public class CP5P110Env {
 		return mFileChkPrm;
 	}
 
-//	/**
-//	 * 蓄積確認パラメータ(国内)取得メソッド
-//	 * @return
-//	 */
-//	public String getFileChkPrmJ() {
-//		return mFileChkPrmJ;
-//	}
-//
-//	/**
-//	 * 蓄積確認パラメータ(外国)取得メソッド
-//	 * @return
-//	 */
-//	public String getFileChkPrmF() {
-//		return mFileChkPrmF;
-//	}
-//
-//	/**
-//	 * 蓄積確認パラメータ(非特許)取得メソッド
-//	 * @return
-//	 */
-//	public String getFileChkPrmN() {
-//		return mFileChkPrmN;
-//	}
 }
