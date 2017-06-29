@@ -1,6 +1,7 @@
 package com.batch.CP5P110;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.batch.Cp5Exception;
 import com.batch.MessageInfo;
@@ -24,7 +25,7 @@ public class CP5P110Env {
     private String mFileChkPrm = null;
 
 	// ログ出力クラス(DEBUG 用)
-	private static final Logger logger = Logger.getLogger(CP5P110Env.class);
+	private static final Logger logger = LoggerFactory.getLogger(CP5P110Env.class);
 
 	/**
 	 * 環境変数設定メソッド

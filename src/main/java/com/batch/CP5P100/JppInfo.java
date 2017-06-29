@@ -7,7 +7,8 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.batch.ComUtil;
 import com.batch.Cp5Exception;
@@ -44,7 +45,7 @@ public class JppInfo {
 	private String mFileUAppealmPath	= null;
 
 	// ログ出力クラス(DEBUG 用)
-	private static final Logger logger = Logger.getLogger(JppInfo.class);
+	private static final Logger logger = LoggerFactory.getLogger(JppInfo.class);
 
 	/**
 	 * データ作成定義設定メソッド

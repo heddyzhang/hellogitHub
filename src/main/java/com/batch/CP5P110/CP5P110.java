@@ -3,9 +3,6 @@ package com.batch.CP5P110;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
-
 import com.batch.Cp5Exception;
 import com.batch.DbAccess;
 import com.batch.IComConst;
@@ -35,13 +32,9 @@ public class CP5P110 {
 		String url              		= null;
 		Connection objCon				= null;
 		DbAccess objDbAccess			= null;
-		// ログ出力クラス(DEBUG 用)
-		Logger logger = Logger.getLogger(CP5P110.class);
 		boolean rollbackFlg = true;
 
 		try {
-			// ログ設定ファイルを読み込む
-			PropertyConfigurator.configure("../resources/log4j.properties");
 
 			// ログ書式整形クラス
 			//objLogFm = new LogFormatter();
@@ -81,16 +74,13 @@ public class CP5P110 {
 
 			// 共通検索一覧表示用情報ファイルパス
 			mfileCmsPath		= args[0];
-			logger.debug("共通検索一覧表示用情報ファイルパスは" + mfileCmsPath);
 			// 蓄積データ内容確認ファイルパス
 			mfileChkPrmPath		= args[1];
-			logger.debug("蓄積データ内容確認ファイルパスは" + mfileChkPrmPath);
 			// 処理区分
 			mShoriKbn			= args[2];
-			logger.debug("処理区分は" + mShoriKbn);
 			// 処理対象DB
 			mShoriTaisho		= args[3];
-			logger.debug("処理対象DBは" + mShoriTaisho);
+
 
 			// オブジェクト生成
 			// 共通環境変数DB
@@ -127,7 +117,6 @@ public class CP5P110 {
 
 			// DB更新
 			jobCode = objDbUpdate.update(objCon, mfileCmsPath, objCP5P110Env.getCmtLmtVal());
-			logger.debug("DB更新の戻り値は" + jobCode);
 
 			// DBコミットが実施済み、ロールバック不可を設定
 			rollbackFlg = false;
@@ -199,7 +188,6 @@ public class CP5P110 {
 				System.out.println(objLogFm.format("CP5J210004-E", msg));
 			}
 
-			logger.debug("終了処理の戻り値は" + jobCode);
 			// 終了処理
 			System.exit(jobCode);
 		}

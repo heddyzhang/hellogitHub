@@ -6,7 +6,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.batch.Cp5Exception;
 import com.batch.MessageInfo;
@@ -24,7 +25,7 @@ public class DbExtract{
 	private List<RangeInfoBean> mDbItemsList = null;
 
 	// ログ出力クラス(DEBUG 用)
-	private static final Logger logger = Logger.getLogger(DbExtract.class);
+	private final Logger logger = LoggerFactory.getLogger(DbExtract.class);
 
 	public DbExtract(String tblName) {
 		mTblName   = tblName;

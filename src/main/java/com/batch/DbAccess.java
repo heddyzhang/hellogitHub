@@ -3,7 +3,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * DB接続・切断を行うクラス
@@ -31,7 +32,7 @@ public class DbAccess{
 	private String mDbPass        = null;
 
 	// ログ出力クラス(DEBUG 用)
-	private static final Logger logger = Logger.getLogger(DbAccess.class);
+	private static final Logger logger = LoggerFactory.getLogger(DbAccess.class);
 
 	/**
 	 * DB接続用変数の設定
@@ -46,10 +47,6 @@ public class DbAccess{
 		mDbUser   = dbUser;
 		mDbPass   = dbPass;
 
-		logger.debug("メンバ変数mDbDriverは" + mDbDriver);
-		logger.debug("メンバ変数mDbUrlは" + mDbDriver);
-		logger.debug("メンバ変数mDbUserは" + mDbDriver);
-		logger.debug("メンバ変数mDbPassは" + mDbDriver);
 	}
 
 

@@ -1,6 +1,7 @@
 package com.batch;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 環境変数を設定するクラス。
@@ -18,7 +19,7 @@ public class SystemEnv {
 	private String mPdhostVal     = null;
 
 	// ログ出力クラス(DEBUG 用)
-	private static final Logger logger = Logger.getLogger(SystemEnv.class);
+	private static final Logger logger = LoggerFactory.getLogger(SystemEnv.class);
 
 	/**
 	 * 環境変数設定メソッド
@@ -70,7 +71,6 @@ public class SystemEnv {
 	 * @return mPdnameportVal
 	 */
     public String getPdnameportVal() {
-    	logger.debug("メソッドgetPdnameportValの戻り値は" + mPdnameportVal);
         return mPdnameportVal;
     }
 
@@ -79,7 +79,6 @@ public class SystemEnv {
      * @return mPdhostVal
      */
     public String getPdhostVal() {
-    	logger.debug("メソッドgetPdhostValの戻り値は" + mPdhostVal);
         return mPdhostVal;
     }
 }

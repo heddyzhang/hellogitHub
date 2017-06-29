@@ -1,7 +1,5 @@
 package com.batch.CP5P130;
 
-import org.apache.log4j.Logger;
-
 /**
  * 文蓄情報を格納するクラス。
  * @author chou
@@ -33,15 +31,11 @@ class RangeInfoBean {
 	// 最大記事番号
 	private String mKy4Max = "";
 
-	// ログ出力クラス(DEBUG 用)
-	private static final Logger logger = Logger.getLogger(RangeInfoBean.class);
-
 	/**
 	 * 文献種別ID取得メソッド
 	 * @return mBid
 	 */
 	public String getBid() {
-		logger.debug("文献種別ID取得メソッドの戻り値は" + mBid);
 		return mBid;
 	}
 
@@ -50,7 +44,6 @@ class RangeInfoBean {
 	 * @return mBnm
 	 */
 	public String getBnm() {
-		logger.debug("文献名称取得メソッドの戻り値は" + mBnm);
 		return mBnm;
 	}
 
@@ -59,7 +52,6 @@ class RangeInfoBean {
 	 * @return mCtry
 	 */
 	public String getCtry() {
-		logger.debug("国コード取得メソッドの戻り値は" + mCtry);
 		return mCtry;
 	}
 
@@ -68,7 +60,6 @@ class RangeInfoBean {
 	 * @return mKind
 	 */
 	public String getKind() {
-		logger.debug("文献種別取得の戻り値は" + mKind);
 		return mKind;
 	}
 
@@ -77,7 +68,6 @@ class RangeInfoBean {
 	 * @return
 	 */
 	public String getScd() {
-		logger.debug("種別コード取得の戻り値は" + mScd);
 		return mScd;
 	}
 
@@ -86,7 +76,6 @@ class RangeInfoBean {
 	 * @return
 	 */
 	public String getDnoMin() {
-		logger.debug("蓄積先頭番号取得の戻り値は" + mDnoMin);
 		return mDnoMin;
 	}
 
@@ -95,7 +84,6 @@ class RangeInfoBean {
 	 * @return
 	 */
 	public String getDnoMax() {
-		logger.debug("蓄積最終番号取得の戻り値は" + mDnoMax);
 		return mDnoMax;
 	}
 
@@ -105,7 +93,6 @@ class RangeInfoBean {
 	 * @return
 	 */
 	public String getIsdateMax() {
-		logger.debug("公知日(年)取得の戻り値は" + mIsdateMax);
 		return mIsdateMax;
 	}
 
@@ -114,7 +101,6 @@ class RangeInfoBean {
 	 * @return
 	 */
 	public String getCount() {
-		logger.debug("蓄積総件数取得の戻り値は" + mCount);
 		return mCount;
 	}
 
@@ -124,7 +110,6 @@ class RangeInfoBean {
 	 * @return
 	 */
 	public String getKy4Min() {
-		logger.debug("最小記事番号取得の戻り値は" + mKy4Min);
 		return mKy4Min;
 	}
 
@@ -133,7 +118,6 @@ class RangeInfoBean {
 	 * @return
 	 */
 	public String getKy4Max() {
-		logger.debug("最大記事番号取得の戻り値は" + mKy4Max);
 		return mKy4Max;
 	}
 
@@ -143,7 +127,6 @@ class RangeInfoBean {
 	 */
 	public void setBnm(String bnm) {
 		this.mBnm = bnm;
-		logger.debug("メンバ変数文献名称設定後は" + mBnm);
 	}
 
 	/**
@@ -152,7 +135,6 @@ class RangeInfoBean {
 	 */
 	public void setCtry(String ctry) {
 		this.mCtry = ctry;
-		logger.debug("メンバ変数国コード設定後は" + mCtry);
 	}
 
 	/**
@@ -161,7 +143,6 @@ class RangeInfoBean {
 	 */
 	public void setKind(String kind) {
 		this.mKind = kind;
-		logger.debug("メンバ変数文献種別設定後は" + mKind);
 	}
 
 	/**
@@ -170,7 +151,6 @@ class RangeInfoBean {
 	 */
 	public void setScd(String scd) {
 		this.mScd = scd;
-		logger.debug("メンバ変数種別コード設定後は" + mScd);
 	}
 
 	/**
@@ -179,7 +159,6 @@ class RangeInfoBean {
 	 */
 	public void setDnoMin(String dno) {
 		this.mDnoMin = dno;
-		logger.debug("メンバ変数蓄積先頭番号設定後は" + mDnoMin);
 	}
 
 	/**
@@ -188,7 +167,6 @@ class RangeInfoBean {
 	 */
 	public void setDnoMax(String dno) {
 		this.mDnoMax = dno;
-		logger.debug("メンバ変数蓄積最終番号設定後は" + mDnoMax);
 	}
 
 	/**
@@ -197,7 +175,6 @@ class RangeInfoBean {
 	 */
 	public void setBid(String bid) {
 		this.mBid = bid;
-		logger.debug("メンバ変数文献種別ID設定後は" + mBid);
 	}
 
 	/**
@@ -206,7 +183,6 @@ class RangeInfoBean {
 	 */
 	public void setIsdateMax(String date) {
 		this.mIsdateMax = date;
-		logger.debug("メンバ変数公知日(年)設定後は" + mIsdateMax);
 	}
 
 	/**
@@ -215,7 +191,6 @@ class RangeInfoBean {
 	 */
 	public void setCount(String count) {
 		this.mCount = count;
-		logger.debug("メンバ変数蓄積総件数設定後は" + mCount);
 	}
 
 	/**
@@ -224,7 +199,6 @@ class RangeInfoBean {
 	 */
 	public void setKy4Min(String dno) {
 		this.mKy4Min = dno;
-		logger.debug("メンバ変数最小記事番号設定後は" + mKy4Min);
 	}
 
 	/**
@@ -233,6 +207,5 @@ class RangeInfoBean {
 	 */
 	public void setKy4Max(String dno) {
 		this.mKy4Max = dno;
-		logger.debug("メンバ変数最大記事番号設定後は" + mKy4Max);
 	}
 }

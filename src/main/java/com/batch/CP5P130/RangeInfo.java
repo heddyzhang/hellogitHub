@@ -12,7 +12,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.batch.ComUtil;
 import com.batch.Cp5Exception;
@@ -32,7 +33,7 @@ public class RangeInfo {
 	private List<RangeInfoBean>   mRangeInfoList = null;
 
 	// ログ出力クラス(DEBUG 用)
-	private static final Logger logger = Logger.getLogger(RangeInfo.class);
+	private final Logger logger = LoggerFactory.getLogger(RangeInfo.class);
 
 	public RangeInfo(int maxScdNum) {
 

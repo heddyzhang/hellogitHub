@@ -2,9 +2,6 @@ package com.batch.CP5P130;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
-
 import com.batch.Cp5Exception;
 import com.batch.DbAccess;
 import com.batch.LogFormatter;
@@ -34,13 +31,8 @@ public class CP5P130 {
 		String msg              = null;
 		String url              = null;
 		int jobCode             = SystemStatus.NORMAL;
-		// ログ出力クラス(DEBUG 用)
-		Logger logger = Logger.getLogger(CP5P130.class);
 
 		try {
-
-			// ログ設定ファイルを読み込む
-			PropertyConfigurator.configure("../resources/log4j.properties");
 
 			msg = String.format(MessageInfo.CP5J510001);
 			System.out.println(objLogFm.format("CP5J510001-I", msg));
@@ -161,7 +153,7 @@ public class CP5P130 {
 				msg = String.format(MessageInfo.CP5J510004);
 				System.out.println(objLogFm.format("CP5J510004-E", msg));
 			}
-			logger.debug("終了処理の戻り値は" + jobCode);
+
 			// 終了処理
 			System.exit(jobCode);
 		}

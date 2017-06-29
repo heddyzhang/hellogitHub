@@ -16,7 +16,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.batch.ComUtil;
 import com.batch.Cp5Exception;
@@ -44,7 +45,7 @@ public class DbUpdate {
 	// 最大レコードID
 	private int mMaxRecid = 0;
 	// ログ出力クラス(DEBUG 用)
-	private static final Logger logger = Logger.getLogger(DbUpdate.class);
+	private static final Logger logger = LoggerFactory.getLogger(DbUpdate.class);
 
 	/**
 	 * コンストラクタ
