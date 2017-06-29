@@ -7,8 +7,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
 
 import com.batch.ComUtil;
 import com.batch.Cp5Exception;
@@ -45,7 +44,7 @@ public class JppInfo {
 	private String mFileUAppealmPath	= null;
 
 	// ログ出力クラス(DEBUG 用)
-	private static final Logger logger = LoggerFactory.getLogger(JppInfo.class);
+	private static final Logger logger = Logger.getLogger(JppInfo.class);
 
 	/**
 	 * データ作成定義設定メソッド
@@ -490,15 +489,17 @@ public class JppInfo {
 //		logger.debug("********************TEST用 printJppInfoList End********************");
 //	}
 
-	/**
-	 * TEST用
-	 * @param jppInfoBean
-	 * @param rowNum
-	 * @param i
-	 */
-	private void printJppInfo(JppInfoBean jppInfoBean, int rowNum, int i) {
-		logger.debug("{}行目:{}個目 項目番号{} 項目内容{}", rowNum, i, jppInfoBean.getNo(), jppInfoBean.getItem());
-	}
+//	/**
+//	 * TEST用
+//	 * @param jppInfoBean
+//	 * @param rowNum
+//	 * @param i
+//	 */
+//	private void printJppInfo(JppInfoBean jppInfoBean, int rowNum, int i) {
+//
+//		logger.debug(rowNum + "行目:" + i + "個目" + " 項目番号 = " + jppInfoBean.getNo() + " 項目内容 = " + jppInfoBean.getItem());
+//
+//	}
 
 	/**
 	 * チェックメソッド
@@ -517,7 +518,7 @@ public class JppInfo {
 		String msg = "";
 
 		// DEBUG用
-		printJppInfo(objJppData, rowNum, columnNum);
+		//printJppInfo(objJppData, rowNum, columnNum);
 		try {
 			// ログ書式整形クラス
 			objLogFm = new LogFormatter();

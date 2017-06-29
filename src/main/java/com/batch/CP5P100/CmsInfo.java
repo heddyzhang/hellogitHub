@@ -7,8 +7,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
 
 import com.batch.ComUtil;
 import com.batch.Cp5Exception;
@@ -36,7 +35,7 @@ public class CmsInfo {
 	private CmsInfoBean objCmsInfoBean = null;
 
 	// ログ出力クラス(DEBUG 用)
-	private static final Logger logger = LoggerFactory.getLogger(CmsInfo.class);
+	private static final Logger logger = Logger.getLogger(CmsInfo.class);
 
 	/**
 	 * コンストラクタ
@@ -787,7 +786,7 @@ public class CmsInfo {
 						ScdKz = "UN0";
 					} else if (ComUtil.toLng(item.substring(6, 12)) < 500001) {
 						ScdKz = "UA0";
-					} else if (ComUtil.toint(cond31) >= 5 && ComUtil.toint(cond31) != 8 ) {
+					} else if (ComUtil.toint(cond31) >= 5 && ComUtil.toint(cond31) != 8) {
 						ScdKz = "UT0";
 					} else {
 						ScdKz = "US0";
@@ -819,7 +818,7 @@ public class CmsInfo {
 			cond31 =item.substring(4,5);
 			// 条件3(5～6バイト)
 			cond32 =item.substring(4,6);
-			// 条件3(5バイト～)
+			// 条件3(6バイト～)
 			cond33 =item.substring(5);
 
 			if ("US".equals(cond1)) {
@@ -858,9 +857,9 @@ public class CmsInfo {
 				}
 
 				if ("B ".equals(cond2)){
-					if ("0".equals(cond31) && 1019872 <= ComUtil.toLng(cond33)) {
+					if ("0".equals(cond31) && 1019872 >= ComUtil.toLng(cond33)) {
 						ScdKz = "CN3";
-					} else if ("0".equals(cond31) && 1019873 >= ComUtil.toLng(cond33)){
+					} else if ("0".equals(cond31) && 1019873 <= ComUtil.toLng(cond33)){
 						ScdKz = "CN4";
 					} else if ("1".equals(cond31)){
 						ScdKz = "CN5";
