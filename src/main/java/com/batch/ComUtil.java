@@ -29,7 +29,7 @@ public class ComUtil {
 
 		if ((s == null) || (s.trim().length() == 0))
 			return true;
-
+System.out.println("TEST");
 		return false;
 	}
 
