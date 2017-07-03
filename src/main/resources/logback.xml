@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE logback>
 <configuration>
-  <property name="LOG_DIR" value="./logs" />
+  <property name="LOG_DIR" value="../debug" />
 
   <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-    <file>${LOG_DIR}/myapp.log</file>
+    <file>${LOG_DIR}/debug.log</file>
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
       <!-- daily rollover  -->
-      <fileNamePattern>${LOG_DIR}/myapp.%d{yyyy-MM-dd}.log</fileNamePattern>
+      <fileNamePattern>${LOG_DIR}/debug.%d{yyyy-MM-dd}.log</fileNamePattern>
 
       <!-- keep 30 days' worth of history -->
       <maxHistory>30</maxHistory>
@@ -24,8 +24,7 @@
     </encoder>
   </appender>
 
-  <root level="debug">
+  <root level="info">
   	<appender-ref ref="FILE" />
-    <appender-ref ref="STDOUT" />
   </root>
 </configuration>

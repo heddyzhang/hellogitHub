@@ -1,14 +1,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.hsc.search</groupId>
+	<groupId>com.batch</groupId>
 	<artifactId>comsearch</artifactId>
 	<packaging>jar</packaging>
 	<version>1.0-SNAPSHOT</version>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>1.8</java.version>
+		<java.version>1.7</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -29,21 +29,25 @@
 			<version>1.7.12</version>
 		</dependency>
 		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.17</version>
-		</dependency>
-		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 			<version>3.5</version>
 		</dependency>
+		<dependency>
+		    <groupId>co.jp.hitachi</groupId>
+		    <artifactId>pdjdbc</artifactId>
+		    <version>4.0</version>
+		    <scope>system</scope>
+		    <systemPath>${basedir}/src/main/resources/lib/pdjdbc4.jar</systemPath>
+		</dependency>
+
 		<!-- ↑これを追加 -->
 	</dependencies>
 
 	<!-- これを追加↓ -->
 	<build>
 		<plugins>
+
 			<!-- java complie version 指定↓ -->
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -57,13 +61,18 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
+				<version>3.0.2</version>
 				<configuration>
 					<archive>
 						<manifest>
 							<addClasspath>true</addClasspath>
 							<classpathPrefix>lib/</classpathPrefix>
-							<mainClass>com.batch.CP5P100.CP5P100</mainClass>
+							<!-- <mainClass>com.batch.CP5P100.CP5P100</mainClass> -->
 						</manifest>
+						<!--ローカルJarをクラスパスに追加される -->
+						<manifestEntries>
+							<Class-Path>lib/pdjdbc-4.0.jar</Class-Path>
+						</manifestEntries>
 					</archive>
 				</configuration>
 			</plugin>
