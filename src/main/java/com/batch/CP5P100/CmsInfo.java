@@ -188,8 +188,8 @@ public class CmsInfo {
 
 				// 公告番号・明細番号・JIS番号を設定
 				if (IComConst.PN_NO_JP.equals(no)) {
-
-					objCmsInfoBean.setPn(item);
+					// 空白を設定
+					objCmsInfoBean.setPn(IComConst.ITEM_DEFAULT_VALUE);
 					continue;
 				}
 
