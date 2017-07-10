@@ -37,7 +37,6 @@ public class SystemEnv {
         	envName = SystemInfo.ENV_PDNAMEPORT;
         	mPdnameportVal = System.getenv(envName);
         	//mPdnameportVal = "15108";
-        	logger.debug("環境変数PDNAMEPORTは" + mPdnameportVal);
 
             if (mPdnameportVal == null) {
             	msg = String.format(MessageInfo.CP5J110009, envName);
@@ -48,7 +47,6 @@ public class SystemEnv {
         	envName = SystemInfo.ENV_PDHOST;
         	mPdhostVal = System.getenv(envName);
         	//mPdhostVal = "dsdb02d-db-clt-d-v";
-        	logger.debug("環境変数PDHOSTは" + mPdhostVal);
 
             if (mPdhostVal == null) {
             	msg = String.format(MessageInfo.CP5J110009, envName);
