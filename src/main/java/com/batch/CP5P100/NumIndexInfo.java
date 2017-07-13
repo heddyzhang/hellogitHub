@@ -175,9 +175,9 @@ public class NumIndexInfo {
 			// 文献番号
 			String kz = objCmsInfoBean.getKz().trim();
 			// 公開日
-			String kd = objCmsInfoBean.getKd();
+			String kd = objCmsInfoBean.getKd().trim();
 			// 公表日
-			String tpnd = objCmsInfoBean.getTpnd();
+			String tpnd = objCmsInfoBean.getTpnd().trim();
 
 			// [資料型]が'P'か’C'の場合
 			if ("P".equals(sr) || "C".equals(sr)) {
@@ -185,7 +185,7 @@ public class NumIndexInfo {
 				ai = objCmsInfoBean.getAi().substring(1, 11);
 
 				// ②出願日を設定
-				ad = objCmsInfoBean.getAd();
+				ad = objCmsInfoBean.getAd().trim();
 
 				// 種別コード(代表文献番号)がPA0(公開)の場合
 				if ("PA0".equals(scdKy)) {
@@ -242,7 +242,7 @@ public class NumIndexInfo {
 				}
 
 				// ⑥公告日を設定
-				pd = objCmsInfoBean.getPd();
+				pd = objCmsInfoBean.getPd().trim();
 
 				// 種別コード(代表文献番号)がPR0(特許)かPC0(明細書)の場合
 				if ("PR0".equals(scdKy) || "PC0".equals(scdKy)) {
@@ -258,10 +258,10 @@ public class NumIndexInfo {
 				}
 
 				// ⑧登録日を設定
-				rd = objCmsInfoBean.getRd();
+				rd = objCmsInfoBean.getRd().trim();
 
 				// ⑨公報発行日
-				rj = objCmsInfoBean.getRj();
+				rj = objCmsInfoBean.getRj().trim();
 
 				// 文字列にカンマ区切りで
 				outData = String.format(SystemInfo.PAPPM_INFO_FORMAT, ai, ad, kyz, kpd, pn, pd, rn, rd, rj);
@@ -392,24 +392,24 @@ public class NumIndexInfo {
 			// 文献番号
 			String kz = objCmsInfoBean.getKz().trim();
 			// 公開日
-			String kd = objCmsInfoBean.getKd();
+			String kd = objCmsInfoBean.getKd().trim();
 			// 公表日
-			String tpnd = objCmsInfoBean.getTpnd();
+			String tpnd = objCmsInfoBean.getTpnd().trim();
 
 			// ①出願番号（2バイト目～11バイト目）を設定
 			ai = objCmsInfoBean.getAi().substring(1, 11);
 
 			// ②出願日を設定
-			ad = objCmsInfoBean.getAd();
+			ad = objCmsInfoBean.getAd().trim();
 
 			// ⑥公告日を設定
-			pd = objCmsInfoBean.getPd();
+			pd = objCmsInfoBean.getPd().trim();
 
 			// ⑧登録日を設定
-			rd = objCmsInfoBean.getRd();
+			rd = objCmsInfoBean.getRd().trim();
 
 			// ⑨公報発行日
-			rj = objCmsInfoBean.getRj();
+			rj = objCmsInfoBean.getRj().trim();
 
 			// [資料型]が'U'か’Z'の場合
 			if ("U".equals(sr) || "Z".equals(sr)) {
