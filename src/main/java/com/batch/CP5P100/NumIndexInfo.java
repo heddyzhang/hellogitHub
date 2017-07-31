@@ -181,8 +181,11 @@ public class NumIndexInfo {
 
 			// [資料型]が'P'か’C'の場合
 			if ("P".equals(sr) || "C".equals(sr)) {
-				// ①出願番号（2バイト目～11バイト目）を設定
-				ai = objCmsInfoBean.getAi().substring(1, 11);
+
+				if (!ComUtil.isEmpty(objCmsInfoBean.getAi())) {
+					// ①出願番号（2バイト目～11バイト目）を設定
+					ai = objCmsInfoBean.getAi().substring(1, 11);
+				}
 
 				// ②出願日を設定
 				ad = objCmsInfoBean.getAd().trim();
@@ -303,8 +306,11 @@ public class NumIndexInfo {
 
 			// // 資料型がPかCの場合
 			if ("P".equals(sr) || "C".equals(sr)) {
-				// ①出願番号（2バイト目～11バイト目）を設定
-				ai = objCmsInfoBean.getAi().substring(1, 11);
+
+				if (!ComUtil.isEmpty(objCmsInfoBean.getAi())){
+					// ①出願番号（2バイト目～11バイト目）を設定
+					ai = objCmsInfoBean.getAi().substring(1, 11);
+				}
 
 				// 審判番号繰り返し数を取得
 				aplnNum = Integer.parseInt(objCmsInfoBean.getAplnNum());
@@ -396,8 +402,10 @@ public class NumIndexInfo {
 			// 公表日
 			String tpnd = objCmsInfoBean.getTpnd().trim();
 
-			// ①出願番号（2バイト目～11バイト目）を設定
-			ai = objCmsInfoBean.getAi().substring(1, 11);
+			if (!ComUtil.isEmpty(objCmsInfoBean.getAi())){
+				// ①出願番号（2バイト目～11バイト目）を設定
+				ai = objCmsInfoBean.getAi().substring(1, 11);
+			}
 
 			// ②出願日を設定
 			ad = objCmsInfoBean.getAd().trim();
@@ -523,8 +531,10 @@ public class NumIndexInfo {
 			// 資料型がUかZの場合
 			if ("U".equals(sr) || "Z".equals(sr)) {
 
-				// ①出願番号（2バイト目～11バイト目）を設定
-				ai = objCmsInfoBean.getAi().substring(1, 11);
+				if (!ComUtil.isEmpty(objCmsInfoBean.getAi())){
+					// ①出願番号（2バイト目～11バイト目）を設定
+					ai = objCmsInfoBean.getAi().substring(1, 11);
+				}
 
 				// 審判番号繰り返し数を取得
 				aplnNum = Integer.parseInt(objCmsInfoBean.getAplnNum());
